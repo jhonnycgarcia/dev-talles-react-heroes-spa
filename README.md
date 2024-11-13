@@ -8,3 +8,5 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 `https://gist.github.com/Klerith/566b484ac6fe46c8fa949e61df671a18`
+
+`https://gist.github.com/Klerith/934da045caae0fec3a1067d013926c46`
