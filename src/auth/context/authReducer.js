@@ -2,7 +2,7 @@ import { types } from "../types/types";
 
 const initialState = {
     logged: false,
-    name: null
+    user: null
 }
 
 export const authReducer = (state = initialState, action) => {
@@ -11,13 +11,13 @@ export const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 logged: true,
-                name: action.payload
+                user: action.payload
             };
         case types.logout:
             return {
                 ...state,
                 logged: false,
-                name: null
+                user: null
             };
         default:
             return state;
