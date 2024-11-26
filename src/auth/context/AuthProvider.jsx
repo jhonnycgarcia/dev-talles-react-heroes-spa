@@ -4,21 +4,28 @@ import { authReducer } from "./authReducer";
 import { types } from "../types/types";
 
 
-const initialState = {
-    logged: false,
-    user: null
+const init = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    return {
+        logged: !!user,
+        user
+    }
 }
 
 export const AuthProvider = ({ children }) => {
 
-    const [authState, dispatch] = useReducer(authReducer, initialState);
+    const [authState, dispatch] = useReducer(authReducer, {}, init);
 
     const login = (name = '') => {
-        dispatch({ type: types.login, payload: { id: 'ABC', name } });
+        const user = { id: 'ABC', name };
+        dispatch({ type: types.login, payload: user });
+        localStorage.setItem('user', JSON.stringify(user));
     }
 
     const logout = () => {
         dispatch({ type: types.logout });
+        localStorage.removeItem('user');
     }
 
     return (
