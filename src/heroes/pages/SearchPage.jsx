@@ -11,12 +11,14 @@ export const SearchPage = () => {
   const { q = ''} = queryString.parse(location.search);
 
   const heroes = useMemo(() => getHeroesByName(q), [q]);
+  const showSearch = (q.length === 0);
+  const showError = (q.length > 0 && heroes.length === 0);
 
   const { searchText, onInputChange } = useForm({ searchText: q });
 
   const onSearchSubmit = (e) => {
     e.preventDefault();
-    if(searchText.length <= 1) { return; }
+    // if(searchText.length <= 1) { return; }
     navigate(`?q=${searchText.toLowerCase().trim()}`);
   }
 
@@ -47,11 +49,14 @@ export const SearchPage = () => {
         <div className="col-7">
           <h4>Results</h4>
           <hr />
-          <div className="alert alert-primary">
+
+          <div className="alert alert-primary animate__animated animate__fadeIn"
+            style={{ display: showSearch ? '' : 'none' }}>
             Search a hero
           </div>
 
-          <div className="alert alert-danger">
+          <div className="alert alert-danger animate__animated animate__fadeIn" 
+            style={{ display: showError ? '' : 'none' }}>
             No results found for <b>{ q }</b>
           </div>
 
