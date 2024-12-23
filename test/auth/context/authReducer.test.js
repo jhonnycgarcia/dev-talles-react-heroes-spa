@@ -19,7 +19,7 @@ describe('Pruebas en authReducer', () => {
         const initialState = { logged: true, user: { name: 'Pedro Lars', id: 123 } };
         const action = { type: types.logout };
         const state = authReducer(initialState, action);
-        expect(state).toEqual({ logged: false });
+        expect(state).toEqual({ logged: false, user: null });
     });
 
 });
