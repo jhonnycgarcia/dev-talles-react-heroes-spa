@@ -40,11 +40,13 @@ exports[`Pruebas en SearchPage debe de mostrar el componente Search con valores 
       </h4>
       <hr />
       <div
+        aria-label="alert-search"
         class="alert alert-primary animate__animated animate__fadeIn"
       >
         Search a hero
       </div>
       <div
+        aria-label="alert-no-results"
         class="alert alert-danger animate__animated animate__fadeIn"
         style="display: none;"
       >
